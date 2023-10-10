@@ -1,4 +1,4 @@
-import { FormEvent, useState } from "react";
+import { useState } from "react";
 import { Button } from "./CustomComponents/Button";
 import { Input } from "./CustomComponents/Input";
 import { toast } from "react-hot-toast";
@@ -13,8 +13,7 @@ export const Login = () => {
 
   const history = useHistory();
 
-  const submitHandler = async (e: FormEvent<Element>) => {
-    e.preventDefault();
+  const submitHandler = async () => {
     setLoading(true);
 
     // Check if email and password are provided
@@ -69,9 +68,7 @@ export const Login = () => {
           title="Account Login"
           className=" w-full"
           isLoading={loading}
-          onClick={(e) => {
-            submitHandler(e as FormEvent<Element>);
-          }}
+          onClick={submitHandler}
         />
         <Button
           title="Get Guest User Credentials"

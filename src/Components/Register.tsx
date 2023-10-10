@@ -1,4 +1,4 @@
-import { FormEvent, useState } from "react";
+import { useState } from "react";
 import { Input } from "./CustomComponents/Input";
 import { toast } from "react-hot-toast";
 import { Button } from "./CustomComponents/Button";
@@ -17,8 +17,7 @@ export const Register = () => {
   // Get the history object for navigation
   const history = useHistory();
 
-  const submitHandler = async (e: FormEvent<Element>) => {
-    e.preventDefault();
+  const submitHandler = async () => {
     setLoading(true);
 
     // Check if any required field is empty
@@ -147,7 +146,7 @@ export const Register = () => {
         title="Account Register"
         className="w-full"
         isLoading={loading}
-        onClick={(e) => submitHandler(e)}
+        onClick={submitHandler}
       />
     </form>
   );

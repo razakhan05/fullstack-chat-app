@@ -1,12 +1,12 @@
 import { Loader } from "./Loader";
-import { MouseEventHandler } from "react";
+import { FormEvent } from "react";
 
 interface ButtonProps {
   className?: string;
   secondaryBtn?: boolean;
   isLoading?: boolean;
   title: string;
-  onClick: MouseEventHandler<HTMLButtonElement>;
+  onClick: () => void;
 }
 
 export const Button = ({
@@ -20,10 +20,14 @@ export const Button = ({
     secondaryBtn ? "btn-secondary" : "btn-primary"
   } w-full`;
 
+  const handleClick = (e: FormEvent<Element>) => {
+    e.preventDefault();
+    onClick();
+  };
   return (
     <button
       className={btnClasses + (className ? ` ${className}` : "")}
-      onClick={onClick}
+      onClick={(e) => handleClick(e)}
     >
       {isLoading ? <Loader /> : title}
     </button>
