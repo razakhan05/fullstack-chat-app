@@ -54,11 +54,13 @@ export const Login = () => {
       <h1 className=" font-bold text-3xl">Login</h1>
       <Input
         title="Email Address"
+        value={email}
         placeholder="youremail@example.com"
         onChange={(data) => setEmail(data as string)}
       />
       <Input
         title="Password"
+        value={password}
         placeholder="password"
         passwordType
         onChange={(data) => setPassword(data as string)}
@@ -74,7 +76,10 @@ export const Login = () => {
           title="Get Guest User Credentials"
           className="w-full"
           secondaryBtn
-          onClick={() => {}}
+          onClick={() => {
+            setEmail("guest@example.com");
+            setPassword("guest@guest");
+          }}
         />
       </div>
     </form>

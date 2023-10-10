@@ -5,6 +5,7 @@ import { InputProps } from "../../types/componentsTypes";
 export const Input = ({
   title,
   placeholder,
+  value,
   fileType,
   passwordType,
   onChange,
@@ -38,7 +39,7 @@ export const Input = ({
           <input
             type="file"
             accept="image/*"
-            className="bg-transparent focus:outline-none w-full py-2"
+            className="file-input file-input-primary w-full focus:outline-none bg-transparent border-none rounded-md h-10 cursor-pointer"
             onChange={handleFileChange}
           />
         ) : (
@@ -46,7 +47,7 @@ export const Input = ({
             placeholder={placeholder}
             className="bg-transparent focus:outline-none px-4 w-full py-2"
             type={passwordType && hidden ? "password" : "text"}
-            value={inputValue}
+            value={value ? value : inputValue}
             onChange={handleInputChange}
           />
         )}
