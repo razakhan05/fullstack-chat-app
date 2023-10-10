@@ -3,4 +3,5 @@ export interface InputProps {
   placeholder?: string;
   fileType?: boolean;
   passwordType?: boolean;
+  onChange: (value: string | File) => void;
 }
