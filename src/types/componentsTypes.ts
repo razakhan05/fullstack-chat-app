@@ -6,3 +6,11 @@ export interface InputProps {
   passwordType?: boolean;
   onChange: (value: string | File) => void;
 }
+
+export interface ButtonProps {
+  className?: string;
+  secondaryBtn?: boolean;
+  isLoading?: boolean;
+  title: string;
+  onClick: () => void;
+}

@@ -1,13 +1,6 @@
+import { ButtonProps } from "../../types/componentsTypes";
 import { Loader } from "./Loader";
 import { FormEvent } from "react";
-
-interface ButtonProps {
-  className?: string;
-  secondaryBtn?: boolean;
-  isLoading?: boolean;
-  title: string;
-  onClick: () => void;
-}
 
 export const Button = ({
   className,

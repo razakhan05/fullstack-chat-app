@@ -1,11 +1,9 @@
-interface LoaderProps {
-    loaderColor?: string;
-}
-
-export const Loader = ({ loaderColor }: LoaderProps) => {
+export const Loader = ({ loaderColor }: { loaderColor?: string }) => {
   return (
     <span
-      className={`loading loading-spinner ${loaderColor ? loaderColor : "text-neutral"}`}
+      className={`loading loading-spinner ${
+        loaderColor ? loaderColor : "text-neutral"
+      }`}
     ></span>
   );
 };
