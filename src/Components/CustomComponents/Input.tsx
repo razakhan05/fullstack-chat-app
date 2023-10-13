@@ -22,9 +22,7 @@ export const Input = ({
   };
 
   const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
-    console.log("raza");
     const file = event.target.files && event.target.files[0];
-    console.log(file);
     if (file) {
       setInputValue(file.name);
       onChange(file);

@@ -11,7 +11,7 @@ export const Button = ({
 }: ButtonProps) => {
   const btnClasses = `btn ${
     secondaryBtn ? "btn-secondary" : "btn-primary"
-  } w-full`;
+  }`;
 
   const handleClick = (e: FormEvent<Element>) => {
     e.preventDefault();

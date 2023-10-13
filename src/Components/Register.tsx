@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Input } from "./CustomComponents/Input";
 import { toast } from "react-hot-toast";
 import { Button } from "./CustomComponents/Button";
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 import { useHistory } from "react-router-dom";
 
 export const Register = () => {
@@ -52,7 +52,6 @@ export const Register = () => {
         config
       );
       toast.success("Registration is successful");
-      console.log("successfull registration my bio");
 
       // Store user information in local storage
       localStorage.setItem("userInfo", JSON.stringify(data));
@@ -61,11 +60,13 @@ export const Register = () => {
       // Redirect to the "chats" page
       history.push("/chats");
     } catch (error) {
-      if (error instanceof Error) {
-        toast.error(error.message);
-      } else {
-        toast.error("An error occurred");
-      }
+      const errorMessage =
+        error instanceof AxiosError
+          ? error.response?.data.message ??
+            "An error occurred, but there is no response data"
+          : "An error occurred";
+
+      toast.error(errorMessage);
       setLoading(false);
     }
   };
@@ -94,7 +95,6 @@ export const Register = () => {
       })
         .then((res) => res.json())
         .then((data) => {
-          console.log(data);
           setPicture(data.url.toString());
           setLoading(false);
         })

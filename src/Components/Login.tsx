@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Button } from "./CustomComponents/Button";
 import { Input } from "./CustomComponents/Input";
 import { toast } from "react-hot-toast";
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 import { useHistory } from "react-router-dom";
 
 export const Login = () => {
@@ -41,11 +41,13 @@ export const Login = () => {
       setLoading(false);
       history.push("/chats");
     } catch (error) {
-      if (error instanceof Error) {
-        toast.error(error.message);
-      } else {
-        toast.error("An error occurred");
-      }
+      const errorMessage =
+        error instanceof AxiosError
+          ? error.response?.data.message ??
+            "An error occurred, but there is no response data"
+          : "An error occurred";
+
+      toast.error(errorMessage);
       setLoading(false);
     }
   };

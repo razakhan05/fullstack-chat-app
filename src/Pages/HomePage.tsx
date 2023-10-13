@@ -13,7 +13,7 @@ export const HomePage = () => {
       <label className="font-mono font-bold text-4xl text-center py-6">
         Chit Chat
       </label>
-      <div className="bg-base-200 p-4 rounded-md">
+      <div className="bg-base-300 p-4 rounded-md">
         {displayLogin ? <Login /> : <Register />}
       </div>
       <div className="flex justify-center pt-4">
