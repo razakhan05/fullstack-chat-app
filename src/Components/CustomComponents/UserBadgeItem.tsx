@@ -8,7 +8,7 @@ interface user {
 export const UserBadgeItem = ({ user, handleFunction }: user) => {
   return (
     <div
-      className=" px-2 py-1  bg-secondary rounded-md flex justify-between  gap-2 items-center mx-1 "
+      className=" px-2 py-1  rounded-md bg-neutral flex justify-between  gap-2 items-center mx-1 "
       onClick={handleFunction}
     >
       <label className=" whitespace-nowrap text-xs">{user.name}</label>

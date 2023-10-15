@@ -9,13 +9,13 @@ export const Loader = ({
     <>
       {isSkeleton ? (
         <div className=" gap-4 my-3 flex flex-col">
-        <div className=" animate-pulse bg-neutral rounded-md h-14 mx-2"></div>
-        <div className=" animate-pulse bg-neutral rounded-md h-14 mx-2"></div>
-        <div className=" animate-pulse bg-neutral rounded-md h-14 mx-2"></div>
-        <div className=" animate-pulse bg-neutral rounded-md h-14 mx-2"></div>
-        <div className=" animate-pulse bg-neutral rounded-md h-14 mx-2"></div>
-        <div className=" animate-pulse bg-neutral rounded-md h-14 mx-2"></div>
-        <div className=" animate-pulse bg-neutral rounded-md h-14 mx-2"></div>
+        <div className=" animate-pulse bg-base-100 rounded-md h-14 mx-2"></div>
+        <div className=" animate-pulse bg-base-100 rounded-md h-14 mx-2"></div>
+        <div className=" animate-pulse bg-base-100 rounded-md h-14 mx-2"></div>
+        <div className=" animate-pulse bg-base-100 rounded-md h-14 mx-2"></div>
+        <div className=" animate-pulse bg-base-100 rounded-md h-14 mx-2"></div>
+        <div className=" animate-pulse bg-base-100 rounded-md h-14 mx-2"></div>
+        <div className=" animate-pulse bg-base-100 rounded-md h-14 mx-2"></div>
        
         </div>
       ) : (

@@ -1,4 +1,6 @@
 export interface UserProps {
+  allUsers: any;
+  token: any;
   chatName: string;
   users: any;
   isGroupChat: boolean;
@@ -15,6 +17,10 @@ export interface UserProps {
 }
 
 export interface ChatsType {
+  groupAdmin: any;
+  _id: string;
+  users: [];
+  isGroupChat: any;
   selectedChat: any;
   chats: any;
   chatName: string;

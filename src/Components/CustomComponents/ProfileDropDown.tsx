@@ -22,7 +22,7 @@ export function ProfileDropDown() {
 
   const showModal = () => {
     const modal = document.getElementById(
-      "my_modal_3"
+      "Profile_Modal"
     ) as HTMLDialogElement | null;
     if (modal) {
       modal.showModal();
@@ -46,7 +46,7 @@ export function ProfileDropDown() {
             >
               My Profile
             </label>
-            <dialog id="my_modal_3" className="modal">
+            <dialog id="Profile_Modal" className="modal">
               <div className="modal-box">
                 <form method="dialog">
                   <button className="btn btn-sm btn-circle btn-neutral absolute right-2 top-2">

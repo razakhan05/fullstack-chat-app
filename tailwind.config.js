@@ -12,6 +12,6 @@ export default {
   },
   plugins: [daisyui, tailwindScrollbar],
   daisyui: {
-    themes: ["night"],
+    themes: ["forest"],
   },
 };
