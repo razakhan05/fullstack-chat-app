@@ -9,6 +9,7 @@ export interface UserProps {
   picture: string | undefined;
   _id: string;
   user: {
+    _id: any;
     token?: string;
     picture: string | undefined;
     name: string;

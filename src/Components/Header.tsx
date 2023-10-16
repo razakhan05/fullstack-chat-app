@@ -8,12 +8,15 @@ import { IoIosNotifications } from "react-icons/io";
 import { useSelector } from "react-redux";
 import { NotificationSideBar } from "./NotificationSideBar";
 
+export interface Chat {
+  notification: [];
+}
 export const Header = () => {
   const chats = useSelector((state: { chat: ChatsType }) => state.chat.chats);
   const notification = useSelector(
-    (state: { chat: any }) => state.chat.notification
+    (state: { chat: Chat }) => state.chat.notification
   );
-  const user = useSelector((state: { user: UserProps }) => state.chat.user);
+  const user = useSelector((state: { chat: UserProps }) => state.chat.user);
   const showModal = (modalName: string) => {
     const modal = document.getElementById(
       modalName
@@ -22,6 +25,7 @@ export const Header = () => {
       modal.showModal();
     }
   };
+
   return (
     <>
       <div className=" z-50 justify-between border-b border-neutral flex py-3 px-4  items-center">

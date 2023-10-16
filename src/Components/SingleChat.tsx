@@ -7,22 +7,30 @@ import { ChatInputField } from "./Chat/ChatInputField";
 import { ChatHeader } from "./ChatHeader";
 import { ChatMainArea } from "./ChatMainArea";
 import { io } from "socket.io-client/debug";
-import { Loader } from "./CustomComponents/Loader";
 import { setNotification } from "../redux/chatSlice";
 
+export interface Message {
+  _id: string;
+  content: string;
+  sender: UserProps;
+  chat: {
+    _id: string;
+  };
+}
 const ENDPOINT = "http://localhost:5400";
-let socket, selectedChatCompare;
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+let socket: any, selectedChatCompare: ChatsType | null;
 export const SingleChat = () => {
-  const [messages, setMessages] = useState<string[]>([]);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const [messages, setMessages] = useState<any>([]);
   const [newMessage, setNewMessage] = useState<string>("");
   const [socketConnection, setSocketConnection] = useState(false);
   const [typing, setTyping] = useState(false);
   const [isTyping, setIsTyping] = useState(false);
 
-
   const user = useSelector((state: { chat: UserProps }) => state.chat.user);
   const notification = useSelector(
-    (state: { chat: any }) => state.chat.notification
+    (state: { chat: { notification: Message[] } }) => state.chat.notification
   );
 
   const dispatch = useDispatch();
@@ -78,7 +86,9 @@ export const SingleChat = () => {
           config
         );
 
-        socket.emit("new-message", data);
+        if (data) {
+          socket.emit("new-message", data);
+        }
         setMessages([...messages, data]);
       } catch (error) {
         const errorMessage =
@@ -107,7 +117,8 @@ export const SingleChat = () => {
   }, [selectedChat]);
 
   useEffect(() => {
-    socket.on("message-recieved", (newMessageRecieved) => {
+    socket.on("message-recieved", (newMessageRecieved: Message) => {
+      console.log(newMessageRecieved, "new message");
       if (
         !selectedChatCompare ||
         selectedChatCompare._id !== newMessageRecieved.chat._id
@@ -127,18 +138,17 @@ export const SingleChat = () => {
     //typing indicator
     if (!socketConnection) return;
     if (!typing) {
-      if(user){
-
+      if (user) {
         setTyping(true);
       }
       socket.emit("typing", selectedChat._id);
     }
 
-    let lastTypingTime = new Date().getTime();
-    let timerLength = 3000;
+    const lastTypingTime = new Date().getTime();
+    const timerLength = 3000;
     setTimeout(() => {
-      let timeNow = new Date().getTime();
-      let timeDifference = timeNow - lastTypingTime;
+      const timeNow = new Date().getTime();
+      const timeDifference = timeNow - lastTypingTime;
       if (timeDifference >= timerLength && typing) {
         socket.emit("stop-typing", selectedChat._id);
         setTyping(false);

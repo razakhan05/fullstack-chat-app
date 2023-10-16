@@ -1,14 +1,20 @@
 import { useDispatch, useSelector } from "react-redux";
-import { UserProps } from "../types/users";
 import { getSender } from "../config/ChatLogics";
 import { setNotification, setSelectedChat } from "../redux/chatSlice";
+import { Chat } from "./Header";
 
+interface Notification {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  chat: any;
+  _id: string;
+}
 export const NotificationSideBar = () => {
   const notification = useSelector(
-    (state: { chat: any }) => state.chat.notification
+    (state: { chat: Chat }) => state.chat.notification
   );
-  const user = useSelector((state: { chat: UserProps }) => state.chat.user);
- 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const user = useSelector((state: { chat: any }) => state.chat.user);
+
   const dispatch = useDispatch();
   return (
     <div className="drawer z-50 drawer-end ">
@@ -23,7 +29,7 @@ export const NotificationSideBar = () => {
         <div className="menu  p-4 w-80 min-h-full bg-base-200 border border-neutral text-base-content">
           <div className=" flex flex-col gap-2 py-4">
             {!notification.length && "No New Messages"}
-            {notification.map((noti: any) => (
+            {notification.map((noti: Notification) => (
               <div
                 key={noti._id}
                 className=" border border-neutral rounded-md p-2 cursor-pointer"

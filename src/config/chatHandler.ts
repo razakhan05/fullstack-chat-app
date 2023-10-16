@@ -7,8 +7,9 @@ export const handleUpdate = async (
   selectedChat: ChatsType,
   user: UserProps,
   groupChatName?: string,
-  setGroupChatName?: any,
-  dispatch?: any
+  setGroupChatName?: (value: string) => void,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  dispatch?: (action: any) => void
 ) => {
   if (!groupChatName) return;
   try {
@@ -26,8 +27,15 @@ export const handleUpdate = async (
       },
       config
     );
-    dispatch(setSelectedChat(data));
-    setGroupChatName("");
+
+    if (dispatch) {
+      dispatch(setSelectedChat(data));
+    }
+
+    if (setGroupChatName) {
+      setGroupChatName("");
+    }
+
     toast.success("Group Name Updated Successfully.");
   } catch (error) {
     const errorMessage =

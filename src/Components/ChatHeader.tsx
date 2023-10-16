@@ -1,11 +1,7 @@
 import { useSelector } from "react-redux";
 import { ChatsType, UserProps } from "../types/users";
 import { MdGroupAdd } from "react-icons/Md";
-import {
-  getSender,
-  getSenderFull,
-  getSenderPicture,
-} from "../config/ChatLogics";
+import { getSender, getSenderPicture } from "../config/ChatLogics";
 import { UpdateGroupModal } from "./Modals/UpdateGroupModal";
 
 export const ChatHeader = () => {
@@ -13,7 +9,8 @@ export const ChatHeader = () => {
     (state: { chat: ChatsType }) => state.chat.selectedChat
   );
 
-  const user = useSelector((state: { chat: UserProps }) => state.chat.user);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const user = useSelector((state: { chat: any }) => state.chat.user);
 
   const showModal = () => {
     const modal = document.getElementById(
