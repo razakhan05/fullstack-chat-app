@@ -19,7 +19,6 @@ export const SingleChat = () => {
   const [typing, setTyping] = useState(false);
   const [isTyping, setIsTyping] = useState(false);
 
-  console.log(isTyping, "hello");
 
   const user = useSelector((state: { chat: UserProps }) => state.chat.user);
   const notification = useSelector(
@@ -46,7 +45,6 @@ export const SingleChat = () => {
         config
       );
       setMessages(data);
-      console.log(messages, "mansi");
       socket.emit("join-chat", selectedChat._id);
     } catch (error) {
       const errorMessage =
@@ -114,7 +112,6 @@ export const SingleChat = () => {
         !selectedChatCompare ||
         selectedChatCompare._id !== newMessageRecieved.chat._id
       ) {
-        console.log(newMessageRecieved, "biro");
         if (!notification.includes(newMessageRecieved)) {
           dispatch(setNotification([newMessageRecieved, ...notification]));
         }
@@ -124,15 +121,16 @@ export const SingleChat = () => {
     });
   });
 
-  console.log(notification, "mansi");
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setNewMessage(e.target.value);
 
     //typing indicator
     if (!socketConnection) return;
     if (!typing) {
-      setTyping(true);
+      if(user){
 
+        setTyping(true);
+      }
       socket.emit("typing", selectedChat._id);
     }
 
@@ -154,7 +152,7 @@ export const SingleChat = () => {
       <ChatMainArea messages={messages} isTyping={isTyping} />
 
       {isTyping ? (
-        <div className="flex fixed z-50 bottom-[7rem] left-[20rem]  justify-start w-full items-center  ">
+        <div className="flex fixed z-50 bottom-[7rem] left-[20rem] justify-start w-full items-center  ">
           <div className=" bg-neutral p-3 animate-bounce flex  rounded-tl-none rounded-br-none rounded-md items-center justify-center gap-1">
             <div className="w-2 h-2 bg-primary-content rounded-full animate-bounce"></div>
             <div

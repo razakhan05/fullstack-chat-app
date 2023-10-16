@@ -8,10 +8,7 @@ export const NotificationSideBar = () => {
     (state: { chat: any }) => state.chat.notification
   );
   const user = useSelector((state: { chat: UserProps }) => state.chat.user);
-  console.log(
-    notification.map((noti) => noti.content),
-    "mama"
-  );
+ 
   const dispatch = useDispatch();
   return (
     <div className="drawer z-50 drawer-end ">
@@ -32,7 +29,6 @@ export const NotificationSideBar = () => {
                 className=" border border-neutral rounded-md p-2 cursor-pointer"
                 onClick={() => {
                   dispatch(setSelectedChat(noti.chat));
-                  //   console.log(noti.chat,"birora")
                   dispatch(
                     setNotification(notification.filter((n) => n !== noti))
                   );

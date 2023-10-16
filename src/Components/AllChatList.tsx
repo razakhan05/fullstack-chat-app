@@ -13,7 +13,6 @@ export const AllChatList = ({ chat }: AllChatListProps) => {
     (state: { chat: ChatsType }) => state.chat.selectedChat
   );
   const user = useSelector((state: { chat: UserProps }) => state.chat.user);
-  console.log(chat, "raza2");
   return (
     <div
       key={chat._id}

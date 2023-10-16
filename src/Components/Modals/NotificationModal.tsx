@@ -7,10 +7,7 @@ export const NotificationModal = () => {
     (state: { chat: any }) => state.chat.notification
   );
   const user = useSelector((state: { chat: UserProps }) => state.chat.user);
-  console.log(
-    notification.map((noti) => noti.content),
-    "mama"
-  );
+ 
   return (
     <div>
       <dialog id="Notification_Modal" className="modal">

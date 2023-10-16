@@ -23,7 +23,6 @@ export const ChatHeader = () => {
       modal.showModal();
     }
   };
-  console.log(selectedChat, "maay");
   return (
     <div className=" h-16   w-full">
       <div className="flex items-center h-full justify-between px-4 py-2">
