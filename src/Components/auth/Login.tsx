@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { Button } from "./CustomComponents/Button";
-import { Input } from "./CustomComponents/Input";
+import { Button } from "../CustomComponents/Button";
+import { Input } from "../CustomComponents/Input";
 import { toast } from "react-hot-toast";
 import axios, { AxiosError } from "axios";
 import { useHistory } from "react-router-dom";

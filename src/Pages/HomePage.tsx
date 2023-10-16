@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { Login } from "../Components/Login";
-import { Register } from "../Components/Register";
+import { Login } from "../Components/auth/Login";
+import { Register } from "../Components/auth/Register";
 
 export const HomePage = () => {
   const [displayLogin, setDisplayLogin] = useState<boolean>(false);
@@ -9,12 +9,12 @@ export const HomePage = () => {
   const userType = displayLogin ? "Register" : "Login";
 
   return (
-    <div className="container sm:max-w-md max-w-xs flex flex-col justify-center">
+    <div className="container sm:max-w-md max-w-xs h-full flex flex-col justify-center">
       <label className="font-mono font-bold text-4xl text-center py-6">
         Chit Chat
       </label>
       <div className="bg-base-300 p-4 rounded-md">
-        {displayLogin ? <Login /> : <Register />}
+        {displayLogin ? <Register /> : <Login />}
       </div>
       <div className="flex justify-center pt-4">
         {`${

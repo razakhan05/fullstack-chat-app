@@ -19,16 +19,19 @@ export const ChatPage = () => {
   const selectedChat = useSelector(
     (state: { chat: ChatsType }) => state.chat.selectedChat
   );
+
   return (
-    <div className="h-full flex w-full flex-col">
+    <div className=" h-full flex w-full flex-col">
       <Header />
       <div className="flex w-full h-full">
         <SideBar />
         {selectedChat ? (
           <SingleChat />
         ) : (
-          <div className="flex rounded-md m-4 bg-base-100 uppercase w-full justify-center items-center border border-neutral">
-            Start the conversation
+          <div className="flex rounded-md m-4 bg-neutral uppercase w-full justify-center items-center border border-neutral">
+            <label className=" animate-pulse text-neutral-content">
+              Start the conversation
+            </label>
           </div>
         )}
       </div>

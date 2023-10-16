@@ -48,6 +48,7 @@ export const SideBar = () => {
       setLoggedUser(JSON.parse(userInfoFromStorage));
     }
   }, [user]);
+
   const showModal = (modalName: string) => {
     const modal = document.getElementById(
       modalName
@@ -57,54 +58,55 @@ export const SideBar = () => {
     }
   };
   return (
-    <div
-      className="flex  flex-col
+    <>
+      <div
+        className=" z-50 hidden md:flex  flex-col
      gap-3  h-full border-r border-neutral w-[50vh]"
-    >
-      <div className="flex flex-col gap-3 px-3 pt-3 justify-center">
-        <button
-          className="btn btn-outline border-primary w-full  "
-          onClick={() => showModal("Search_User_Modal")}
-        >
-          Search user to chat
-        </button>
-        <div className="flex items-center justify-between">
-          <label className=" font-bold uppercase text-lg">Chats</label>
+      >
+        <div className="flex flex-col gap-3 px-3 pt-3 justify-center">
           <button
-            className=" btn btn-outline border-primary"
-            onClick={() => showModal("Add_Users_Modal")}
+            className="btn btn-neutral w-full  "
+            onClick={() => showModal("Search_User_Modal")}
           >
-            <MdGroupAdd /> <div>Add</div>
+            Search user to chat
           </button>
+          <div className="flex items-center justify-between">
+            <label className=" font-bold uppercase text-lg">Chats</label>
+            <button
+              className=" btn btn-neutral"
+              onClick={() => showModal("Add_Users_Modal")}
+            >
+              <MdGroupAdd /> <div>Add</div>
+            </button>
+          </div>
+        </div>
+        {/* All chats & group chat list */}
+
+        <div
+          className="flex overflow-y-auto
+         max-h-[70vh] flex-col mx-2 gap-3"
+          style={{ scrollbarWidth: "thin" }}
+        >
+          <>
+            {chats ? (
+              <>
+                {chats?.map((chat: ChatsType) => (
+                  <AllChatList
+                    chat={chat}
+                    key={chat?._id}
+                    loggedUser={loggedUser as unknown as UserProps}
+                  />
+                ))}
+              </>
+            ) : (
+              <Loader isSkeleton />
+            )}
+          </>
         </div>
       </div>
-      {/* All chats & group chat list */}
-
-      <div
-        className="flex overflow-y-auto
-         max-h-[70vh] flex-col mx-2 gap-3"
-        style={{ scrollbarWidth: "thin" }}
-      >
-        <>
-          {chats ? (
-            <>
-              {chats?.map((chat: ChatsType) => (
-                <AllChatList
-                  chat={chat}
-                  key={chat._id}
-                  loggedUser={loggedUser as unknown as UserProps}
-                />
-              ))}
-            </>
-          ) : (
-            <Loader isSkeleton />
-          )}
-        </>
-      </div>
-
       {/* Modals */}
       <AddUsersToChat />
       <SearchUserToChat />
-    </div>
+    </>
   );
 };

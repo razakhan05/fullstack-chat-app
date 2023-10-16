@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { Input } from "./CustomComponents/Input";
+import { Input } from "../CustomComponents/Input";
 import { toast } from "react-hot-toast";
-import { Button } from "./CustomComponents/Button";
+import { Button } from "../CustomComponents/Button";
 import axios, { AxiosError } from "axios";
 import { useHistory } from "react-router-dom";
 
@@ -40,6 +40,7 @@ export const Register = () => {
           "Content-type": "application/json",
         },
       };
+
       // Send registration data to the server
       const { data } = await axios.post(
         "/api/user",

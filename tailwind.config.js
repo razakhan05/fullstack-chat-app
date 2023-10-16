@@ -12,6 +12,7 @@ export default {
   },
   plugins: [daisyui, tailwindScrollbar],
   daisyui: {
-    themes: ["forest"],
+    themes: ["forest","lofi","luxury",],
   },
+  
 };

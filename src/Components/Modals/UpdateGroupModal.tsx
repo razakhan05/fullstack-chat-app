@@ -179,12 +179,12 @@ export const UpdateGroupModal = ({ selectedChat, user }: UpdateProps) => {
           <div className="  flex  items-center  gap-3">
             <input
               type="text"
-              className=" input w-full input-bordered"
+              className=" input w-full input-bordered focus:border-none"
               placeholder="Chat name"
               onChange={(e) => setGroupChatName(e.target.value)}
             />
             <button
-              className=" btn btn-primary"
+              className=" btn btn-neutral "
               onClick={() =>
                 handleUpdate(
                   selectedChat,
@@ -200,7 +200,7 @@ export const UpdateGroupModal = ({ selectedChat, user }: UpdateProps) => {
           </div>
           <input
             placeholder="Add users"
-            className=" input input-bordered w-full"
+            className=" input input-bordered w-full focus:border-none"
             onChange={(e) => handleSearch(e.target.value)}
           />
           {filteredUsers ? (

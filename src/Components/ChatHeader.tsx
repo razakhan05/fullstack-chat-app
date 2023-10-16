@@ -1,7 +1,11 @@
 import { useSelector } from "react-redux";
 import { ChatsType, UserProps } from "../types/users";
 import { MdGroupAdd } from "react-icons/Md";
-import { getSenderPicture, getSender } from "../config/ChatLogics";
+import {
+  getSender,
+  getSenderFull,
+  getSenderPicture,
+} from "../config/ChatLogics";
 import { UpdateGroupModal } from "./Modals/UpdateGroupModal";
 
 export const ChatHeader = () => {
@@ -19,9 +23,10 @@ export const ChatHeader = () => {
       modal.showModal();
     }
   };
+  console.log(selectedChat, "maay");
   return (
-    <div className=" w-full">
-      <div className="flex justify-between px-4 py-2">
+    <div className=" h-16   w-full">
+      <div className="flex items-center h-full justify-between px-4 py-2">
         <div className="flex gap-3 items-center">
           {!selectedChat?.isGroupChat ? (
             <img
@@ -31,6 +36,7 @@ export const ChatHeader = () => {
           ) : (
             <></>
           )}
+
           <label className="text-2xl uppercase font-bold">
             {!selectedChat?.isGroupChat ? (
               <>{getSender(user, selectedChat?.users)}</>
@@ -44,7 +50,7 @@ export const ChatHeader = () => {
           <>
             {/* update Group modal */}
             <button
-              className="btn btn-primary rounded-full"
+              className="btn btn-neutral rounded-full"
               onClick={showModal}
             >
               <MdGroupAdd size="1rem" />

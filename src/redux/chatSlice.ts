@@ -6,6 +6,7 @@ interface ChatState {
   selectedChat: unknown;
   chats: unknown;
   allUsers: unknown;
+  notification: unknown;
 }
 
 interface User {}
@@ -14,6 +15,7 @@ const initialState: ChatState = {
   selectedChat: null,
   chats: null,
   allUsers: [],
+  notification: [],
 };
 
 const chatSlice = createSlice({
@@ -32,9 +34,12 @@ const chatSlice = createSlice({
     setAllUsers: (state, action: PayloadAction<unknown>) => {
       state.allUsers = action.payload;
     },
+    setNotification: (state, action: PayloadAction<unknown>) => {
+      state.notification = action.payload;
+    },
   },
 });
 
-export const { setUser, setSelectedChat, setChats, setAllUsers } =
+export const { setUser, setSelectedChat, setChats, setAllUsers,setNotification } =
   chatSlice.actions;
 export default chatSlice.reducer;

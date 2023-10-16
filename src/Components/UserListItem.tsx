@@ -8,8 +8,6 @@ export const UserListItem = ({
   user: UserProps;
   handleAccessChat: MouseEventHandler<HTMLDivElement>;
 }) => {
-
-  console.log(user,"raza")
   return (
     <div className="h-full w-full">
       <div

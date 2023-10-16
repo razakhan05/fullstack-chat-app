@@ -27,8 +27,8 @@ export const handleUpdate = async (
       config
     );
     dispatch(setSelectedChat(data));
-    toast.success("Group Name Updated Successfully.");
     setGroupChatName("");
+    toast.success("Group Name Updated Successfully.");
   } catch (error) {
     const errorMessage =
       error instanceof AxiosError

@@ -77,7 +77,7 @@ export const SearchUserToChat: React.FC = () => {
       };
       const { data } = await axios.post("/api/chat", { userId }, config);
 
-      if (!chats.find((chat: { _id: string }) => chat._id === data._id)) {
+      if (!chats.find((chat: { _id: string }) => chat?._id === data?._id)) {
         dispatch(setChats([data, ...chats]));
       }
       dispatch(setSelectedChat(data));
@@ -111,9 +111,9 @@ export const SearchUserToChat: React.FC = () => {
               <>
                 {filteredUsers?.map((user) => (
                   <UserListItem
-                    key={user._id}
+                    key={user?._id}
                     user={user}
-                    handleAccessChat={() => handleAccessToChat(user._id)}
+                    handleAccessChat={() => handleAccessToChat(user?._id)}
                   />
                 ))}
               </>

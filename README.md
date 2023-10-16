@@ -1,27 +1,36 @@
-# React + TypeScript + Vite
+# Circle Chat App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Circle is a feature-rich chatting application built with Vite, React.js, Tailwind CSS, Socket.io, MongoDB, Node.js, Express, and Cloudinary. This full-stack app offers user authentication, 1v1 and group chat capabilities, and multiple themes for a customizable chat experience.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **User Authentication**: Secure user sign-up, login, and profile management.
 
-## Expanding the ESLint configuration
+- **1v1 Chat**: Real-time one-on-one messaging with other users.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **Group Chat**: Create and join chat groups for group conversations.
 
-- Configure the top-level `parserOptions` property like this:
+- **Multiple Themes**: Choose from various themes to personalize your chat.
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
+## Technologies Used
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- **Vite**: A fast build tool that enhances development with hot module replacement (HMR).
+
+- **React.js**: Building the front-end with the popular UI library.
+
+- **Tailwind CSS**: Responsive styling with utility-first CSS.
+
+- **Socket.io**: Enabling real-time communication for instant messaging.
+
+- **MongoDB**: Storing user data, chat messages, and group information.
+
+- **Node.js and Express**: Handling server-side logic and APIs.
+
+- **Cloudinary**: Storing and serving user profile images and attachments.
+
+## Getting Started
+
+1. **Clone the Repository:**
+
+   ```bash
+   <!-- git clone https://github.com/yourusername/circle-chat-app.git -->

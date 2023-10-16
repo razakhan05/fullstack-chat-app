@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { UserBadgeItem } from "../CustomComponents/UserBadgeItem";
 import { UserListItem } from "../UserListItem";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { ChatsType, UserProps } from "../../types/users";
 import toast from "react-hot-toast";
 import axios, { AxiosError } from "axios";
@@ -16,6 +16,7 @@ export const AddUsersToChat = () => {
   const user = useSelector((state: { chat: UserProps }) => state.chat.user);
   const chats = useSelector((state: { chat: ChatsType }) => state.chat.chats);
 
+  const dispatch = useDispatch();
   const allUsers = useSelector(
     (state: { chat: UserProps }) => state.chat.allUsers
   );
@@ -75,7 +76,7 @@ export const AddUsersToChat = () => {
         config
       );
 
-      setChats([data, ...chats]);
+      dispatch(setChats([data, ...chats]));
       toast.success("Group chat created successfully");
     } catch (error) {
       const errorMessage =
