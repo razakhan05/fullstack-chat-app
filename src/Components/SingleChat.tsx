@@ -18,6 +18,7 @@ export interface Message {
   };
 }
 const ENDPOINT = "http://localhost:5400";
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 let socket: any, selectedChatCompare: ChatsType | null;
 export const SingleChat = () => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any

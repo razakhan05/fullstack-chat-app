@@ -44,7 +44,7 @@ export const Login = () => {
       const errorMessage =
         error instanceof AxiosError
           ? error.response?.data.message ??
-            "An error occurred, but there is no response data"
+            "An error occurred check if backend is connected with frontend or not"
           : "An error occurred";
 
       toast.error(errorMessage);
