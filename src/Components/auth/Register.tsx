@@ -43,7 +43,7 @@ export const Register = () => {
 
       // Send registration data to the server
       const { data } = await axios.post(
-        "https://localhost:5400/api/user",
+        "/api/user",
         {
           name,
           email,

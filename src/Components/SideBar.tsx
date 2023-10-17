@@ -25,7 +25,7 @@ export const SideBar = () => {
         },
       };
 
-      const { data } = await axios.get("https://chitchat-server-6cet.onrender.com/api/chat", config);
+      const { data } = await axios.get("/api/chat", config);
       dispatch(setChats(data));
     } catch (error) {
       const errorMessage =
