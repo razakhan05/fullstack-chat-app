@@ -68,7 +68,7 @@ export const AddUsersToChat = () => {
       };
 
       const { data } = await axios.post(
-        "/api/chat/group",
+        "https://chitchat-server-6cet.onrender.com/api/chat/group",
         {
           name: groupChatName,
           users: JSON.stringify(selectedUsers.map((u) => u._id)),

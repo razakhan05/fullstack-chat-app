@@ -20,7 +20,7 @@ export const handleUpdate = async (
     };
 
     const { data } = await axios.put(
-      "/api/chat/renamegroup",
+      "https://chitchat-server-6cet.onrender.com/api/chat/renamegroup",
       {
         chatId: selectedChat._id,
         chatName: groupChatName,
