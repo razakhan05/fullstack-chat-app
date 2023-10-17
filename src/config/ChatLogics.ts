@@ -1,36 +1,19 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { UserProps } from "../types/users";
 
-interface Messages {
-  length: number;
-  messages: any;
+interface Sender {
+  sender: any;
+  _id: string;
 }
 
 interface Message {
-  sender: UserProps;
+  sender: Sender;
 }
 
-export const isSameSenderMargin = (
-  messages: Messages,
-  m: Message,
-  i: number,
-  userId: UserProps
-): number | "auto" => {
-  if (
-    i < messages.length - 1 &&
-    messages.messages[i + 1].sender._id === m.sender._id &&
-    messages.messages[i].sender._id !== userId
-  )
-    return 33;
-  else if (
-    (i < messages.length - 1 &&
-      messages.messages[i + 1].sender._id !== m.sender._id &&
-      messages.messages[i].sender._id !== userId) ||
-    (i === messages.length - 1 && messages.messages[i].sender._id !== userId)
-  )
-    return "auto";
-  else return 0;
-};
+interface Messages {
+  length: number;
+  messages: Message[];
+}
 
 export const isSameSender = (
   messages: Messages,
@@ -40,9 +23,9 @@ export const isSameSender = (
 ): boolean => {
   return (
     i < messages.length - 1 &&
-    (messages.messages[i + 1].sender._id !== m.sender._id ||
-      messages.messages[i + 1].sender._id === undefined) &&
-    messages.messages[i].sender._id !== userId
+    (messages[i + 1]?.sender._id !== m.sender._id ||
+      messages[i + 1]?.sender._id === undefined) &&
+    messages[i]?.sender._id !== userId
   );
 };
 
@@ -53,8 +36,8 @@ export const isLastMessage = (
 ): boolean => {
   return (
     i === messages.length - 1 &&
-    messages.messages[messages.length - 1].sender._id !== userId &&
-    messages.messages[messages.length - 1].sender._id
+    messages[messages.length - 1]?.sender._id !== userId &&
+    messages[messages.length - 1]?.sender._id
   );
 };
 

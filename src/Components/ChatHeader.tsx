@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import { ChatsType, UserProps } from "../types/users";
-import { MdGroupAdd } from "react-icons/Md";
+import { AiOutlineUsergroupAdd } from "react-icons/ai";
 import { getSender, getSenderPicture } from "../config/ChatLogics";
 import { UpdateGroupModal } from "./Modals/UpdateGroupModal";
 
@@ -49,7 +49,7 @@ export const ChatHeader = () => {
               className="btn btn-neutral rounded-full"
               onClick={showModal}
             >
-              <MdGroupAdd size="1rem" />
+              <AiOutlineUsergroupAdd size="1rem" />
             </button>
             <UpdateGroupModal
               selectedChat={selectedChat}
