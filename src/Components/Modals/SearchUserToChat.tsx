@@ -33,7 +33,7 @@ export const SearchUserToChat: React.FC = () => {
           },
         };
 
-        const { data } = await axios.get("/api/user", config);
+        const { data } = await axios.get("https://chitchat-server-6cet.onrender.com/api/user", config);
         dispatch(setAllUsers(data));
       } catch (error) {
         if (axios.isAxiosError(error)) {
@@ -75,7 +75,7 @@ export const SearchUserToChat: React.FC = () => {
           Authorization: `Bearer ${user.token}`,
         },
       };
-      const { data } = await axios.post("/api/chat", { userId }, config);
+      const { data } = await axios.post("https://chitchat-server-6cet.onrender.com/api/chat", { userId }, config);
 
       if (!chats.find((chat: { _id: string }) => chat?._id === data?._id)) {
         dispatch(setChats([data, ...chats]));

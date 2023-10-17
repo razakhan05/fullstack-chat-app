@@ -49,7 +49,7 @@ export const SingleChat = () => {
       };
 
       const { data } = await axios.get(
-        `/api/message/${selectedChat._id}`,
+        `https://chitchat-server-6cet.onrender.com/api/message/${selectedChat._id}`,
         config
       );
       setMessages(data);
@@ -78,7 +78,7 @@ export const SingleChat = () => {
 
         setNewMessage("");
         const { data } = await axios.post(
-          "/api/message",
+          "https://chitchat-server-6cet.onrender.com/api/message",
           {
             content: newMessage,
             chatId: selectedChat._id,
