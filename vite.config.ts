@@ -6,9 +6,8 @@ export default defineConfig({
   server: {
     proxy: {
       "/api": {
-        target: "https://chitchat-server-6cet.onrender.com", // Replace with your backend API server URL
+        target: "https://chitchat-server-6cet.onrender.com",
         changeOrigin: true,
-        // rewrite: (path) => path.replace(/^\/api/, ""),
       },
     },
   },
