@@ -17,7 +17,7 @@ export interface Message {
     _id: string;
   };
 }
-const ENDPOINT = "http://localhost:5400";
+const ENDPOINT = "https://chitchat-server-6cet.onrender.com";
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 let socket: any, selectedChatCompare: ChatsType | null;
 export const SingleChat = () => {
