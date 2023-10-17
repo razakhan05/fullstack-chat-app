@@ -1,12 +1,8 @@
 {
-    "rewrites": [
-      {
-        "source": "/:path((?!api/).*)",
-        "destination": "/index.html"
-      },
-      {
-        "source": "/:path(api/.*)",
-        "destination": "/api"
-      }
-    ]
-  }
+  "rewrites": [
+    {
+      "source": "/api/:path*",
+      "destination": "https://https://chitchat-server-6cet.onrender.com/:path*"
+    }
+  ]
+}
