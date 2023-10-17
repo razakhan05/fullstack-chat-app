@@ -31,7 +31,7 @@ export const Login = () => {
       };
       // Send a POST request to the server for login
       const { data } = await axios.post(
-        "/api/user/login",
+        "https://chitchat-server-6cet.onrender.com/api/user/login",
         { email, password },
         config
       );
