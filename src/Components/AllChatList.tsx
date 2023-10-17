@@ -12,7 +12,8 @@ export const AllChatList = ({ chat }: AllChatListProps) => {
   const selectedChat = useSelector(
     (state: { chat: ChatsType }) => state.chat.selectedChat
   );
-  const user = useSelector((state: { chat: UserProps }) => state.chat.user);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const user = useSelector((state: { chat: any }) => state.chat.user);
   return (
     <div
       key={chat._id}
@@ -22,7 +23,11 @@ export const AllChatList = ({ chat }: AllChatListProps) => {
       } `}
     >
       <h1 className="text-xl font-bold">
-        {!chat?.isGroupChat ? getSender(user, chat.users) : chat.chatName}
+        {user && (
+          <>
+            {!chat?.isGroupChat ? getSender(user, chat.users) : chat.chatName}
+          </>
+        )}
       </h1>
       <h3 className=" text-xs font-semibold">RoadSide Coder : hello</h3>
     </div>
