@@ -5,10 +5,7 @@ import react from "@vitejs/plugin-react";
 export default defineConfig({
   server: {
     proxy: {
-      "/api": {
-        target: "https://chitchat-server-6cet.onrender.com/",
-        changeOrigin: true,
-      },
+      "/api": "https://chitchat-server-6cet.onrender.com",
     },
   },
   plugins: [react()],
