@@ -44,7 +44,7 @@ export const UpdateGroupModal = ({ selectedChat, user }: UpdateProps) => {
       };
 
       const response = await axios.put(
-        "https://chitchat-server-6cet.onrender.com/api/chat/groupadd",
+        "/api/chat/groupadd",
         {
           userId: addedUser._id,
           chatId: selectedChat._id,
@@ -78,7 +78,7 @@ export const UpdateGroupModal = ({ selectedChat, user }: UpdateProps) => {
         },
       };
       const { data } = await axios.put(
-        "https://chitchat-server-6cet.onrender.com/api/chat/groupleave",
+        "/api/chat/groupleave",
         {
           userId: removeUser._id,
           chatId: selectedChat._id,
@@ -109,7 +109,7 @@ export const UpdateGroupModal = ({ selectedChat, user }: UpdateProps) => {
         },
       };
       const { data } = await axios.put(
-        "https://chitchat-server-6cet.onrender.com/api/chat/groupleave",
+        "/api/chat/groupleave",
         {
           userId: leaveUser._id,
           chatId: selectedChat._id,

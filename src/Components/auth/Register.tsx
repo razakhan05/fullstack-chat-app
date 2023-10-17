@@ -43,7 +43,7 @@ export const Register = () => {
 
       // Send registration data to the server
       const { data } = await axios.post(
-        "https://chitchat-server-6cet.onrender.com/api/user",
+        "/api/user",
         {
           name,
           email,
