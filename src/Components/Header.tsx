@@ -1,6 +1,6 @@
 import { ProfileDropDown } from "./ProfileDropDown";
 import { PiSidebarFill } from "react-icons/pi";
-import { MdGroupAdd } from "react-icons/Md";
+import { AiOutlineUsergroupAdd } from "react-icons/ai";
 import { ChatsType, UserProps } from "../types/users";
 import { AllChatList } from "./AllChatList";
 import { Loader } from "./CustomComponents/Loader";
@@ -68,7 +68,7 @@ export const Header = () => {
                         className="border rounded-md p-2 border-neutral flex items-center gap-2"
                         onClick={() => showModal("Add_Users_Modal")}
                       >
-                        <MdGroupAdd /> <div>Add</div>
+                        <AiOutlineUsergroupAdd /> <div>Add</div>
                       </button>
                     </div>
                   </div>

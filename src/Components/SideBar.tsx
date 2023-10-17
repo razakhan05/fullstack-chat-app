@@ -1,4 +1,4 @@
-import { MdGroupAdd } from "react-icons/Md";
+import { AiOutlineUsergroupAdd } from "react-icons/ai";
 import { AddUsersToChat } from "./Modals/AddUsersToChat";
 import { SearchUserToChat } from "./Modals/SearchUserToChat";
 import { useDispatch, useSelector } from "react-redux";
@@ -76,7 +76,7 @@ export const SideBar = () => {
               className=" btn btn-neutral"
               onClick={() => showModal("Add_Users_Modal")}
             >
-              <MdGroupAdd /> <div>Add</div>
+              <AiOutlineUsergroupAdd /> <div>Add</div>
             </button>
           </div>
         </div>

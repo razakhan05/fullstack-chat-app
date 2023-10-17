@@ -16,8 +16,8 @@ interface Messages {
 }
 
 export const isSameSender = (
-  messages: Messages,
-  m: Message,
+  messages: any,
+  m: any,
   i: number,
   userId: UserProps
 ): boolean => {
@@ -30,7 +30,7 @@ export const isSameSender = (
 };
 
 export const isLastMessage = (
-  messages: Messages,
+  messages: any,
   i: number,
   userId: UserProps
 ): boolean => {
