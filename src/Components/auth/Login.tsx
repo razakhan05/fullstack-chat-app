@@ -39,7 +39,7 @@ export const Login = () => {
       toast.success("Login Successful");
       localStorage.setItem("userInfo", JSON.stringify(data));
       setLoading(false);
-      history.push("/chats");
+      // history.push("/chats");
     } catch (error) {
       const errorMessage =
         error instanceof AxiosError

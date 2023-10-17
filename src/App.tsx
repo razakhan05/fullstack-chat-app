@@ -12,8 +12,8 @@ function App() {
   }, []);
   return (
     <div className="h-[100vh] font-mono w-full  text-gray-400 bg-base-300">
-      <Route path="/" exact component={HomePage} />
-      <Route path="/chats" component={ChatPage} />
+      <Route path="https://fullstack-chat-app-coral.vercel.app" exact component={HomePage} />
+      <Route path="https://fullstack-chat-app-coral.vercel.app/chats" component={ChatPage} />
     </div>
   );
 }
